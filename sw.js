@@ -1,5 +1,5 @@
 
-const ROOT_PATH = "/AWP-Narvaez/practica7";
+const ROOT_PATH = "/practica7";
 const STATIC_CACHE_NAME = 'static-cache-v1.0';
 const INMUTABLE_CACHE_NAME = 'inmutable-cache-v1.0';
 const DYNAMIC_CACHE_NAME = 'dynamic-cache-v1.0';
@@ -9,6 +9,12 @@ const ELEMENTS_CACHE = {
     [STATIC_CACHE_NAME]: [
         `${ROOT_PATH}/`, 
         `${ROOT_PATH}/index.html`,
+        `${ROOT_PATH}/images/icons/android-launchericon-48-48.png`,
+        `${ROOT_PATH}/images/icons/android-launchericon-72-72.png`,
+        `${ROOT_PATH}/images/icons/android-launchericon-96-96.png`,
+        `${ROOT_PATH}/images/icons/android-launchericon-144-144.png`,
+        `${ROOT_PATH}/images/icons/android-launchericon-192-192.png`,
+        `${ROOT_PATH}/images/icons/android-launchericon-512-512.png`,
     ],
     [INMUTABLE_CACHE_NAME]: [
         // Los archivos de Bootstrap pueden ser actualizados debido a su versión, se dice que son archivos inmutables.
@@ -18,7 +24,7 @@ const ELEMENTS_CACHE = {
     ],
 };
 
-self.addEventListener('install',(event)=> {
+self.addEventListener('install', event => {
     const PROMISES = Object.keys(ELEMENTS_CACHE).map((cacheName) => {
         return caches.open(cacheName)
             .then((cache) => {
